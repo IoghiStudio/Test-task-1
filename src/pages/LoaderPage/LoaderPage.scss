@@ -59,10 +59,12 @@
 
 .loader-text {
   font-size: 28px;
-  font-weight: 600;
+  font-weight: 500;
   line-height: 28px;
   color: $shadow-color-2;
   position: relative;
+  text-shadow: 0 0 $shadow-width-1 $shadow-color-1,
+    0 0 $shadow-width-2 $shadow-color-2;
 
   span:first-child {
     position: relative;
