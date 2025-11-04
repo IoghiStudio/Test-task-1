@@ -9,6 +9,7 @@ interface IProps {
 const EntrancePage: React.FC<IProps> = ({ onEntranceComplete }) => {
   const pageRef = useRef<HTMLDivElement>(null);
   const [isTransitioning, setIsTransitioning] = useState(false);
+  const [showLogos, setShowLogos] = useState(false);
 
   useEffect(() => {
     const handleMouseMove = (e: MouseEvent) => {
@@ -37,6 +38,17 @@ const EntrancePage: React.FC<IProps> = ({ onEntranceComplete }) => {
     };
   }, []);
 
+  useEffect(() => {
+    // Show logos after 4 seconds
+    const logoTimer = setTimeout(() => {
+      setShowLogos(true);
+    }, 4000);
+
+    return () => {
+      clearTimeout(logoTimer);
+    };
+  }, []);
+
   const handleContinue = () => {
     setIsTransitioning(true);
 
@@ -52,7 +64,13 @@ const EntrancePage: React.FC<IProps> = ({ onEntranceComplete }) => {
       ref={pageRef}
     >
       <div className="entrance-content">
-        <Logos />
+        {showLogos ? (
+          <Logos />
+        ) : (
+          <div className="logos-placeholder">
+            {/* Invisible space placeholder */}
+          </div>
+        )}
 
         <div className="entrance-title">
           <div className="title-line">
@@ -79,7 +97,11 @@ const EntrancePage: React.FC<IProps> = ({ onEntranceComplete }) => {
               LIMITS
             </h1>
           </div>
-          {/* <p>ZERO LIMITS</p> */}
+
+          <div className="subtitle-container">
+            <p>STOP SEARCHING DEVS.</p>
+            <p>HIRE ME INSTEAD.</p>
+          </div>
         </div>
 
         <div className="entrance-actions">
