@@ -89,9 +89,9 @@ const LoaderPage: React.FC<IProps> = ({ onLoadingComplete }) => {
     };
   }, [onLoadingComplete]);
 
-  // if (!isVisible) {
-  //   return null;
-  // }
+  if (!isVisible) {
+    return null;
+  }
 
   return (
     <div className="loader-page">
