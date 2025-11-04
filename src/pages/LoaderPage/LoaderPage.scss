@@ -1,0 +1,120 @@
+@use "../../styles/vars" as *;
+@use "../../styles/mixins" as *;
+
+.loader-page {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-image: url("../../assets/images/menu-bg.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+
+  // Sunlight rays animation overlay
+  &::before {
+    content: "";
+    position: absolute;
+    top: -100px;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url("../../assets/images/loader-bg.png");
+    background-size: cover;
+    background-position: center top;
+    background-repeat: no-repeat;
+    transform-origin: center top;
+    animation: sunlightSway 3s ease-in-out infinite;
+    pointer-events: none;
+    z-index: 10;
+  }
+}
+
+.loader-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+  position: relative;
+  z-index: 2;
+}
+
+.progress-container {
+  position: relative;
+  width: 260px;
+}
+
+.progress-text {
+  position: absolute;
+  top: 15px;
+  font-size: 12px;
+  font-weight: 600;
+  color: $main-text-color;
+  font-family: "Montserrat", -apple-system, BlinkMacSystemFont, "Segoe UI",
+    sans-serif;
+  text-shadow: 0 0 $shadow-width-1 $shadow-color-1,
+    0 0 $shadow-width-2 $shadow-color-2;
+  transition: left 0.2s ease-out;
+  transform: translateX(-50%);
+  white-space: nowrap;
+}
+
+.progress-bar {
+  height: 2px;
+  background-color: $main-text-color;
+  border-radius: 1px;
+  overflow: hidden;
+  position: relative;
+  margin: 0 auto;
+
+  // Initial state: 50% width, centered
+  &--initial {
+    width: 130px; // 50% of 260px
+    transition: none;
+  }
+
+  // Growing state: animate to full width over 500ms
+  &--growing {
+    width: 130px; // Start from 50%
+    animation: growToFullWidth 500ms ease-out forwards;
+  }
+
+  // Ready state: full width, ready for loading
+  &--ready {
+    width: 260px;
+    transition: none;
+  }
+}
+
+@keyframes growToFullWidth {
+  from {
+    width: 130px; // 50% of 260px
+  }
+  to {
+    width: 260px; // 100%
+  }
+}
+
+.progress-fill {
+  height: 100%;
+  background-color: #00ff00;
+  transition: width 0.2s ease-out;
+  border-radius: 1px;
+}
+
+@keyframes sunlightSway {
+  0% {
+    transform: translateX(-20px) rotate(-7.5deg);
+  }
+  50% {
+    transform: translateX(20px) rotate(7.5deg);
+  }
+  100% {
+    transform: translateX(-20px) rotate(-7.5deg);
+  }
+}

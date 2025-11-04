@@ -1,0 +1,69 @@
+@use "./vars" as *;
+@use "./mixins" as *;
+@use "./typography" as *;
+@use "./global" as *;
+@use "./pages" as *;
+@use "./layout" as *;
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-size: 16px;
+  line-height: 18px;
+}
+
+p {
+  color: $main-text-color;
+}
+
+#root {
+  width: 100%;
+}
+
+html {
+  font-size: 16px;
+  font-family: "Montserrat", -apple-system, BlinkMacSystemFont, "Segoe UI",
+    sans-serif;
+  line-height: 18px;
+  scroll-behavior: smooth;
+}
+
+body {
+  color: $main-text-color;
+  height: 100vh;
+  height: 100dvh;
+  // width: 100vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: start;
+  overflow: hidden;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+// Scrollbar (Custom Styling)
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: gray;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-track {
+  background: $main-background-color;
+}

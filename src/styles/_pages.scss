@@ -1,0 +1,35 @@
+@use './vars' as *;
+@use './mixins' as *;
+
+.page {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  // padding: 10px 0;
+
+  // @include onTablet {
+  //   padding: 20px 0;
+  // }
+
+  &__title {
+    margin-bottom: 10px;
+
+    @include onTablet {
+      margin-bottom: 20px;
+    }
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 10px;
+
+    @include onTablet {
+      margin-bottom: 20px;
+    }
+  }
+
+  &__cta-button {
+    margin-bottom: 12px;
+  }
+}
