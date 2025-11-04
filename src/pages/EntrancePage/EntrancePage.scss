@@ -90,16 +90,50 @@
 }
 
 .entrance-title {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  line-height: 0.8;
+
+  .title-line {
+    display: flex;
+    align-items: flex-end; // Default alignment for baseline
+    justify-content: center;
+    margin: 0;
+    gap: 0.5rem; // Add small spacing between words
+  }
+
   h1 {
-    font-size: 3rem;
+    font-size: 6rem;
     font-weight: 700;
     color: $main-text-color;
     font-family: "Montserrat", -apple-system, BlinkMacSystemFont, "Segoe UI",
       sans-serif;
     text-shadow: 0 0 $shadow-width-1 $shadow-color-1,
       0 0 $shadow-width-2 $shadow-color-2;
-    margin: 0 0 16px 0;
+    margin: 0;
     letter-spacing: 2px;
+    line-height: 1;
+  }
+
+  .title-small {
+    font-size: 1rem; // Make both "THE" and "OF" 1rem
+    font-weight: 700;
+    color: $main-text-color;
+    font-family: "Montserrat", -apple-system, BlinkMacSystemFont, "Segoe UI",
+      sans-serif;
+    text-shadow: 0 0 $shadow-width-1 $shadow-color-1,
+      0 0 $shadow-width-2 $shadow-color-2;
+    margin: 0;
+    letter-spacing: 2px;
+    line-height: 1;
+
+    // Make "THE" align to top
+    &:first-child {
+      align-self: flex-start;
+    }
+
+    // "OF" will use the default flex-end alignment (bottom/baseline)
   }
 
   p {
@@ -110,7 +144,7 @@
       sans-serif;
     text-shadow: 0 0 $shadow-width-1 $shadow-color-1,
       0 0 $shadow-width-2 $shadow-color-2;
-    margin: 0;
+    margin: 8px 0 0 0;
     opacity: 0.9;
   }
 }

@@ -55,8 +55,25 @@ const EntrancePage: React.FC<IProps> = ({ onEntranceComplete }) => {
         <Logos />
 
         <div className="entrance-title">
-          <h1>Welcome</h1>
-          <p>Ready to begin your journey?</p>
+          <div className="title-line">
+            <span
+              className="title-small"
+              style={{ position: "relative", top: "13px" }}
+            >
+              THE
+            </span>
+            <h1>HALL</h1>
+            <span
+              className="title-small"
+              style={{ position: "relative", bottom: "13px" }}
+            >
+              OF
+            </span>
+          </div>
+          <div className="title-line">
+            <h1>ZERO LIMITS</h1>
+          </div>
+          <p>ZERO LIMITS</p>
         </div>
 
         <div className="entrance-actions">
