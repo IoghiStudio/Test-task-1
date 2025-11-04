@@ -79,7 +79,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 48px;
+  gap: 28px;
   text-align: center;
   position: relative;
   z-index: 2;
@@ -139,7 +139,6 @@
     height: 2px;
     width: 100%;
     background: transparent; // Invisible divider
-    margin: 8px 0;
     position: relative;
     z-index: 10; // Ensure it's above the sliding elements
   }
@@ -198,14 +197,13 @@
     backdrop-filter: blur(10px); // Blur effect
     border-radius: 2px;
 
-    p {
+    span {
+      display: flex;
       font-size: 1.2rem;
       font-weight: 700;
       color: $main-text-color;
       font-family: "Montserrat", -apple-system, BlinkMacSystemFont, "Segoe UI",
         sans-serif;
-      text-shadow: 0 0 $shadow-width-1 $shadow-color-1,
-        0 0 $shadow-width-2 $shadow-color-2;
       margin: 4px 0;
       opacity: 0.9;
       letter-spacing: 3px;

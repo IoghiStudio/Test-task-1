@@ -42,7 +42,7 @@ const EntrancePage: React.FC<IProps> = ({ onEntranceComplete }) => {
   useEffect(() => {
     const logoTimer = setTimeout(() => {
       setShowLogos(true);
-    }, 1500);
+    }, 1000);
 
     return () => {
       clearTimeout(logoTimer);
@@ -121,8 +121,8 @@ const EntrancePage: React.FC<IProps> = ({ onEntranceComplete }) => {
           </div>
 
           <div className="subtitle-container">
-            <p>STOP SEARCHING DEVS.</p>
-            <p>HIRE ME INSTEAD.</p>
+            <span>STOP SEARCHING DEVS.</span>
+            <span>HIRE ME INSTEAD.</span>
           </div>
         </div>
 
