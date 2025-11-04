@@ -121,14 +121,14 @@ const EntrancePage: React.FC<IProps> = ({ onEntranceComplete }) => {
           </div>
 
           <div className="subtitle-container">
-            <span>STOP SEARCHING DEVS.</span>
-            <span>HIRE ME INSTEAD.</span>
+            <span>EXPLORE NEW PATHS.</span>
+            <span>FIND YOUR GIFT.</span>
           </div>
         </div>
 
         <div className="entrance-actions">
           <button className="entrance-button" onClick={handleContinue}>
-            Enter
+            ENTER
           </button>
         </div>
       </div>
