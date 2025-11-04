@@ -71,9 +71,15 @@ const EntrancePage: React.FC<IProps> = ({ onEntranceComplete }) => {
             </span>
           </div>
           <div className="title-line">
-            <h1>ZERO LIMITS</h1>
+            <h1>
+              ZER
+              <span className="letter-with-dot">
+                O<span className="dot-overlay"></span>
+              </span>{" "}
+              LIMITS
+            </h1>
           </div>
-          <p>ZERO LIMITS</p>
+          {/* <p>ZERO LIMITS</p> */}
         </div>
 
         <div className="entrance-actions">
