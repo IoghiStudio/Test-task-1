@@ -234,16 +234,52 @@
 }
 
 .entrance-button {
+  position: relative;
   color: $main-text-color;
   background: rgba(0, 255, 0, 0.05);
   width: 130px;
   height: 40px;
-  border: 2px solid $main-text-color;
+  border: 1px solid white; // White border on all sides
   letter-spacing: 4px;
+  border-top: none; // Remove top border to create it with pseudo-elements
   font-size: 10px;
   font-weight: 800;
-  border-radius: 4px;
+  border-radius: 2px;
   cursor: pointer;
+
+  // Create the left part of the top border
+  &::before {
+    content: "";
+    position: absolute;
+    top: -1px;
+    left: -1px;
+    width: calc(50% - 5px); // Half width minus 5px (half of the 10px gap)
+    height: 1px;
+    background-color: white;
+    border-top-left-radius: 4px; // Match button's border-radius
+  }
+
+  // Create the right part of the top border
+  &::after {
+    content: "";
+    position: absolute;
+    top: -1px;
+    right: -1px;
+    width: calc(50% - 5px); // Half width minus 5px (half of the 10px gap)
+    height: 1px;
+    background-color: white;
+    border-top-right-radius: 4px; // Match button's border-radius
+  }
+
+  &:hover {
+    background: rgba(0, 255, 0, 0.1);
+    box-shadow: 0 8px 20px rgba(255, 255, 255, 0.2);
+  }
+
+  &:active {
+    transform: translateY(0);
+    box-shadow: 0 4px 10px rgba(255, 255, 255, 0.1);
+  }
 }
 
 .logos-placeholder {

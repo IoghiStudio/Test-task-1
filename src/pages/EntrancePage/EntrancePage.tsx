@@ -129,6 +129,7 @@ const EntrancePage: React.FC<IProps> = ({ onEntranceComplete }) => {
         <div className="entrance-actions">
           <button className="entrance-button" onClick={handleContinue}>
             ENTER
+            <div className="left-line" />
           </button>
         </div>
       </div>
