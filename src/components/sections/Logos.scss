@@ -34,13 +34,11 @@
 }
 
 .logos-separator {
-  font-size: 1.5rem;
-  font-weight: 700;
+  font-size: 1rem;
+  font-weight: 500;
   color: $main-text-color;
   font-family: "Montserrat", -apple-system, BlinkMacSystemFont, "Segoe UI",
     sans-serif;
-  text-shadow: 0 0 $shadow-width-1 $shadow-color-1,
-    0 0 $shadow-width-2 $shadow-color-2;
   position: relative;
   z-index: 1;
 }
