@@ -20,7 +20,6 @@ const LoaderPage: React.FC<IProps> = ({ onLoadingComplete }) => {
     const updateProgress = () => {
       setProgress((prev) => {
         if (prev >= 100) {
-          // Wait 1000ms then hide loader
           setTimeout(() => {
             setIsVisible(false);
             onLoadingComplete?.();
@@ -28,26 +27,20 @@ const LoaderPage: React.FC<IProps> = ({ onLoadingComplete }) => {
           return 100;
         }
 
-        // More varied random increments: 1% to 7%
-        // Use weighted randomization to control average loading time
         let randomIncrement;
         const rand = Math.random();
 
         if (rand < 0.3) {
-          // 30% chance: small increment (1-2%)
-          randomIncrement = Math.random() * 1 + 1; // 1 to 2
+          randomIncrement = Math.random() * 1 + 1;
         } else if (rand < 0.7) {
-          // 40% chance: medium increment (2-4%)
-          randomIncrement = Math.random() * 2 + 2; // 2 to 4
+          randomIncrement = Math.random() * 2 + 2;
         } else {
-          // 30% chance: large increment (4-7%)
-          randomIncrement = Math.random() * 3 + 4; // 4 to 7
+          randomIncrement = Math.random() * 3 + 4;
         }
 
         const newProgress = Math.min(prev + randomIncrement, 100);
 
-        // Slower intervals between 200ms and 1000ms
-        const randomInterval = Math.random() * 800 + 200; // 200ms to 1000ms
+        const randomInterval = Math.random() * 800 + 200;
 
         timeoutId = setTimeout(updateProgress, randomInterval);
 
@@ -55,29 +48,19 @@ const LoaderPage: React.FC<IProps> = ({ onLoadingComplete }) => {
       });
     };
 
-    // Animation sequence:
-    // 1. Bar appears at 70% width (initial state)
-    // 2. After 500ms, start growing to full width (500ms animation)
-    // 3. Wait 1 second at full width
-    // 4. Then start the loading progress
-
     const phase1Timeout = setTimeout(() => {
-      // Start growing animation after 500ms
       setBarAnimationPhase("growing");
     }, 500);
 
     const phase2Timeout = setTimeout(() => {
-      // Animation complete, bar is now full width
       setBarAnimationPhase("ready");
-    }, 1000); // 500ms + 500ms animation
+    }, 1000);
 
     const phase3Timeout = setTimeout(() => {
-      // Start loading after another 1 second wait
       setHasStartedLoading(true);
-      // Start the first progress update
-      const initialDelay = Math.random() * 800 + 200; // 200-1000ms
+      const initialDelay = Math.random() * 800 + 200;
       timeoutId = setTimeout(updateProgress, initialDelay);
-    }, 2000); // 500ms + 500ms + 1000ms
+    }, 2000);
 
     return () => {
       clearTimeout(phase1Timeout);

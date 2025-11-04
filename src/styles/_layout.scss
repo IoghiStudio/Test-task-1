@@ -3,7 +3,6 @@
 
 $main-padding: 16px;
 
-//app layout styles
 .layout {
   display: flex;
   flex-direction: column;
@@ -11,7 +10,6 @@ $main-padding: 16px;
   height: 100dvh;
   margin: 0 auto;
   max-width: 1300px;
-  // background-color: $main-background-color;
   position: relative;
 
   @include onLaptop {
@@ -27,14 +25,11 @@ $main-padding: 16px;
   &__menu-blur-bg {
     position: fixed;
     z-index: 2;
-    // inset: $menu-inset;
-    // backdrop-filter: blur(2px);
   }
 
   &__menu {
     position: fixed;
     z-index: 3;
-    // inset: $menu-inset;
     transition: transform 0.6s;
     transform: translateX(100%);
 
@@ -60,32 +55,25 @@ $main-padding: 16px;
     flex-direction: column;
     width: 100%;
     flex-grow: 1;
-    // min-height: calc(100vh - $header-height);
-    // min-height: calc(100dvh - $header-height);
     overflow-y: auto;
     overflow-x: hidden;
     padding: 12px 16px;
 
     @include onTabletSmall {
-      // padding: 14px 20px + $main-padding;
     }
 
     @include onTablet {
-      // padding: 16px calc(24px + $main-padding);
     }
 
     @include onLaptop {
-      // padding: 20px calc(32px + $main-padding);
       min-height: 100vh;
       min-height: 100dvh;
     }
 
     @include onDesktop {
-      // padding: 30px calc(40px + $main-padding);
     }
 
     @include onDesktopLarge {
-      // padding: 36px 48px;
     }
   }
 }

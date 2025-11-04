@@ -12,12 +12,10 @@
     transition: transform 1s ease-out;
 
     &:first-child {
-      // Left logo starts 40px more to the left
       animation: slideInFromLeft 1s ease-out forwards;
     }
 
     &:last-child {
-      // Right logo starts 40px more to the right
       animation: slideInFromRight 1s ease-out forwards;
     }
   }

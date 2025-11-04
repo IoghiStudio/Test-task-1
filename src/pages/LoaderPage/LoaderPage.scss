@@ -16,7 +16,6 @@
   align-items: center;
   z-index: 9999;
 
-  // Sunlight rays animation overlay
   &::before {
     content: "";
     position: absolute;
@@ -102,19 +101,16 @@
   position: relative;
   margin: 0 auto;
 
-  // Initial state: 50% width, centered
   &--initial {
-    width: 130px; // 50% of 260px
+    width: 130px;
     transition: none;
   }
 
-  // Growing state: animate to full width over 500ms
   &--growing {
-    width: 130px; // Start from 50%
+    width: 130px;
     animation: growToFullWidth 500ms ease-out forwards;
   }
 
-  // Ready state: full width, ready for loading
   &--ready {
     width: 260px;
     transition: none;
@@ -123,10 +119,10 @@
 
 @keyframes growToFullWidth {
   from {
-    width: 130px; // 50% of 260px
+    width: 130px;
   }
   to {
-    width: 260px; // 100%
+    width: 260px;
   }
 }
 

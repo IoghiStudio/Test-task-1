@@ -10,7 +10,6 @@ const InsidePage: React.FC<IProps> = ({ onInsideComplete }) => {
   const pageRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    // Start the entrance animation after a short delay
     const timer = setTimeout(() => {
       setIsEntering(false);
     }, 100);
@@ -25,15 +24,11 @@ const InsidePage: React.FC<IProps> = ({ onInsideComplete }) => {
       const { clientX, clientY } = e;
       const { innerWidth, innerHeight } = window;
 
-      // Calculate the offset from center (0 to 1, then -1 to 1)
-      const xOffset = (clientX / innerWidth - 0.5) * 2; // -1 to 1
-      const yOffset = (clientY / innerHeight - 0.5) * 2; // -1 to 1
+      const xOffset = (clientX / innerWidth - 0.5) * 2;
+      const yOffset = (clientY / innerHeight - 0.5) * 2;
 
-      // Convert to pixel movement (max 50px in each direction, reversed)
-      const moveX = -xOffset * 50; // Negative to reverse direction
-      const moveY = -yOffset * 50; // Negative to reverse direction
-
-      // Apply the CSS custom properties for the background transform
+      const moveX = -xOffset * 50;
+      const moveY = -yOffset * 50;
       pageRef.current.style.setProperty("--mouse-x", `${moveX}px`);
       pageRef.current.style.setProperty("--mouse-y", `${moveY}px`);
     };

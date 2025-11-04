@@ -13,11 +13,9 @@
   z-index: 9998;
   overflow: hidden;
 
-  // CSS custom properties for mouse tracking
   --mouse-x: 0px;
   --mouse-y: 0px;
 
-  // Create the perspective background effect
   &::before {
     content: "";
     position: absolute;
@@ -36,7 +34,6 @@
     z-index: -1;
   }
 
-  // Transition state - zoom and blur the background
   &.transitioning {
     &::before {
       transform: perspective(1000px) rotateX(15deg) scale(2.5)
@@ -56,7 +53,6 @@
     }
   }
 
-  // Sunlight rays animation overlay
   &::after {
     content: "";
     position: absolute;
@@ -84,9 +80,7 @@
   position: relative;
   z-index: 2;
   padding: 40px;
-  // background: rgba(0, 0, 0, 0.3);
   border-radius: 16px;
-  // backdrop-filter: blur(10px);
 }
 
 .entrance-title {
@@ -97,10 +91,10 @@
 
   .title-line {
     display: flex;
-    align-items: flex-end; // Default alignment for baseline
+    align-items: flex-end;
     justify-content: center;
     margin: 0;
-    gap: 0.5rem; // Add small spacing between words
+    gap: 0.5rem;
   }
 
   h1 {
@@ -116,7 +110,7 @@
   }
 
   .title-small {
-    font-size: 1rem; // Make both "THE" and "OF" 1rem
+    font-size: 1rem;
     font-weight: 700;
     color: $main-text-color;
     font-family: "Montserrat", -apple-system, BlinkMacSystemFont, "Segoe UI",
@@ -127,24 +121,20 @@
     letter-spacing: 2px;
     line-height: 1;
 
-    // Make "THE" align to top
     &:first-child {
       align-self: flex-start;
     }
-
-    // "OF" will use the default flex-end alignment (bottom/baseline)
   }
 
   .title-divider {
     height: 2px;
     width: 100%;
-    background: transparent; // Invisible divider
+    background: transparent;
     position: relative;
-    z-index: 10; // Ensure it's above the sliding elements
+    z-index: 10;
   }
 
   .title-line-top {
-    // Initial state: hidden below the divider
     transform: translateY(50px);
     opacity: 0;
     transition: all 1s ease-out;
@@ -157,7 +147,6 @@
   }
 
   .title-line-bottom {
-    // Initial state: hidden above the divider
     transform: translateY(-50px);
     opacity: 0;
     transition: all 1s ease-out;
@@ -185,7 +174,6 @@
         0 0 $shadow-width-2 $shadow-color-2;
       pointer-events: none;
       z-index: 1;
-      // Remove the text content and use a square div instead
       font-size: 0;
     }
   }
@@ -193,8 +181,8 @@
   .subtitle-container {
     margin-top: 20px;
     padding: 2px 60px;
-    background: rgba(0, 255, 0, 0.05); // Much more subtle green background
-    backdrop-filter: blur(10px); // Blur effect
+    background: rgba(0, 255, 0, 0.05);
+    backdrop-filter: blur(10px);
     border-radius: 2px;
     display: flex;
     flex-direction: column;
@@ -214,7 +202,6 @@
     }
   }
 
-  // Keep the original p styling for any other paragraphs
   p {
     font-size: 1.2rem;
     font-weight: 400;
@@ -239,36 +226,34 @@
   background: rgba(0, 255, 0, 0.05);
   width: 130px;
   height: 40px;
-  border: 1px solid white; // White border on all sides
+  border: 1px solid white;
   letter-spacing: 4px;
-  border-top: none; // Remove top border to create it with pseudo-elements
+  border-top: none;
   font-size: 10px;
   font-weight: 800;
   border-radius: 2px;
   cursor: pointer;
 
-  // Create the left part of the top border
   &::before {
     content: "";
     position: absolute;
     top: -1px;
     left: -1px;
-    width: calc(50% - 5px); // Half width minus 5px (half of the 10px gap)
+    width: calc(20% - 5px);
     height: 1px;
     background-color: white;
-    border-top-left-radius: 4px; // Match button's border-radius
+    border-top-left-radius: 4px;
   }
 
-  // Create the right part of the top border
   &::after {
     content: "";
     position: absolute;
     top: -1px;
     right: -1px;
-    width: calc(50% - 5px); // Half width minus 5px (half of the 10px gap)
+    width: calc(80% - 5px);
     height: 1px;
     background-color: white;
-    border-top-right-radius: 4px; // Match button's border-radius
+    border-top-right-radius: 4px;
   }
 
   &:hover {
@@ -283,12 +268,11 @@
 }
 
 .logos-placeholder {
-  height: 68px; // Same height as actual logos to maintain layout spacing
-  width: 100%; // Full width to maintain positioning
+  height: 68px;
+  width: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
-  // Completely invisible placeholder - just maintains space
 }
 
 @keyframes placeholderPulse {
