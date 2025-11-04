@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "./LoaderPage.scss";
+import { Logos } from "../../components/sections";
 
 interface IProps {
   onLoadingComplete?: () => void;
@@ -88,22 +89,38 @@ const LoaderPage: React.FC<IProps> = ({ onLoadingComplete }) => {
     };
   }, [onLoadingComplete]);
 
-  if (!isVisible) {
-    return null;
-  }
+  // if (!isVisible) {
+  //   return null;
+  // }
 
   return (
     <div className="loader-page">
       <div className="loader-content">
-        <div className="progress-container">
-          <div className={`progress-bar progress-bar--${barAnimationPhase}`}>
-            <div className="progress-fill" style={{ width: `${progress}%` }} />
-          </div>
-          {hasStartedLoading && (
-            <div className="progress-text" style={{ left: `${progress}%` }}>
-              {Math.round(progress)}%
+        <Logos />
+
+        <div className="loader-content-bottom">
+          <div className="loader-logo">
+            <div className="loader-text" style={{ textAlign: "center" }}>
+              <span style={{ fontSize: "14px" }}>THE</span> HALL{" "}
+              <span style={{ fontSize: "14px" }}>OF</span>
             </div>
-          )}
+
+            <div className="loader-text">ZERO LIMITS</div>
+          </div>
+
+          <div className="progress-container">
+            <div className={`progress-bar progress-bar--${barAnimationPhase}`}>
+              <div
+                className="progress-fill"
+                style={{ width: `${progress}%` }}
+              />
+            </div>
+            {hasStartedLoading && (
+              <div className="progress-text" style={{ left: `${progress}%` }}>
+                {Math.round(progress)}%
+              </div>
+            )}
+          </div>
         </div>
       </div>
     </div>

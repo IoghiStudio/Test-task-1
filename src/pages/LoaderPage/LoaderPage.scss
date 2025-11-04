@@ -44,6 +44,34 @@
   z-index: 2;
 }
 
+.loader-content-bottom {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  animation: slideUpFromBottom 1s ease-out forwards;
+}
+
+.loader-logo {
+  display: flex;
+  flex-direction: column;
+}
+
+.loader-text {
+  font-size: 28px;
+  font-weight: 600;
+  line-height: 28px;
+  color: $shadow-color-2;
+  position: relative;
+
+  span:first-child {
+    position: relative;
+    top: -10px;
+    left: 0;
+    font-size: 14px;
+  }
+}
+
 .progress-container {
   position: relative;
   width: 260px;
@@ -116,5 +144,16 @@
   }
   100% {
     transform: translateX(-20px) rotate(-7.5deg);
+  }
+}
+
+@keyframes slideUpFromBottom {
+  0% {
+    transform: translateY(40px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
   }
 }

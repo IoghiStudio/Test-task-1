@@ -9,7 +9,7 @@ export const App = () => {
   const [step, setStep] = useState<AppStep>(1);
 
   const handleLoadingComplete = () => {
-    setStep(2);
+    // setStep(2);
   };
 
   const handleEntranceComplete = () => {

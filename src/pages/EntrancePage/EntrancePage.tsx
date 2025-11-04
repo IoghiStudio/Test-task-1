@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import "./EntrancePage.scss";
+import { Logos } from "../../components/sections";
 
 interface IProps {
   onEntranceComplete?: () => void;
@@ -51,10 +52,13 @@ const EntrancePage: React.FC<IProps> = ({ onEntranceComplete }) => {
       ref={pageRef}
     >
       <div className="entrance-content">
+        <Logos />
+
         <div className="entrance-title">
           <h1>Welcome</h1>
           <p>Ready to begin your journey?</p>
         </div>
+
         <div className="entrance-actions">
           <button className="entrance-button" onClick={handleContinue}>
             Enter
