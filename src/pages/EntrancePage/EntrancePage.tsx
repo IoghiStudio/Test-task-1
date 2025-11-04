@@ -10,6 +10,7 @@ const EntrancePage: React.FC<IProps> = ({ onEntranceComplete }) => {
   const pageRef = useRef<HTMLDivElement>(null);
   const [isTransitioning, setIsTransitioning] = useState(false);
   const [showLogos, setShowLogos] = useState(false);
+  const [showTitleAnimation, setShowTitleAnimation] = useState(false);
 
   useEffect(() => {
     const handleMouseMove = (e: MouseEvent) => {
@@ -39,13 +40,23 @@ const EntrancePage: React.FC<IProps> = ({ onEntranceComplete }) => {
   }, []);
 
   useEffect(() => {
-    // Show logos after 4 seconds
     const logoTimer = setTimeout(() => {
       setShowLogos(true);
-    }, 4000);
+    }, 1500);
 
     return () => {
       clearTimeout(logoTimer);
+    };
+  }, []);
+
+  useEffect(() => {
+    // Start title animation immediately when component mounts
+    const titleTimer = setTimeout(() => {
+      setShowTitleAnimation(true);
+    }, 500); // Small delay for dramatic effect
+
+    return () => {
+      clearTimeout(titleTimer);
     };
   }, []);
 
@@ -73,7 +84,11 @@ const EntrancePage: React.FC<IProps> = ({ onEntranceComplete }) => {
         )}
 
         <div className="entrance-title">
-          <div className="title-line">
+          <div
+            className={`title-line title-line-top ${
+              showTitleAnimation ? "animate-in" : ""
+            }`}
+          >
             <span
               className="title-small"
               style={{ position: "relative", top: "13px" }}
@@ -88,7 +103,14 @@ const EntrancePage: React.FC<IProps> = ({ onEntranceComplete }) => {
               OF
             </span>
           </div>
-          <div className="title-line">
+
+          <div className="title-divider"></div>
+
+          <div
+            className={`title-line title-line-bottom ${
+              showTitleAnimation ? "animate-in" : ""
+            }`}
+          >
             <h1>
               ZER
               <span className="letter-with-dot">

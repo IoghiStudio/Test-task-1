@@ -135,6 +135,41 @@
     // "OF" will use the default flex-end alignment (bottom/baseline)
   }
 
+  .title-divider {
+    height: 2px;
+    width: 100%;
+    background: transparent; // Invisible divider
+    margin: 8px 0;
+    position: relative;
+    z-index: 10; // Ensure it's above the sliding elements
+  }
+
+  .title-line-top {
+    // Initial state: hidden below the divider
+    transform: translateY(50px);
+    opacity: 0;
+    transition: all 1s ease-out;
+    overflow: hidden;
+
+    &.animate-in {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+
+  .title-line-bottom {
+    // Initial state: hidden above the divider
+    transform: translateY(-50px);
+    opacity: 0;
+    transition: all 1s ease-out;
+    overflow: hidden;
+
+    &.animate-in {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+
   .letter-with-dot {
     position: relative;
     display: inline-block;
